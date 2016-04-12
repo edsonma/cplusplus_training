@@ -18,30 +18,39 @@ class Data{
 
 	public:
 		// Constructors and SeekDestroy!
-		Data(int val):
-			myValue(val){
-		};
+		Data(int val);
 
 		~Data() {};
 
 		// Accessors
-		int getValue() const { return myValue; };
-		void setValue(int val) { myValue = val; };
+		int getValue() const;
+		void setValue(int val);
 
 
 		// Misc Methods
 		int compare(const Data & otherData);
-		void show(){
-			cout << myValue << endl; 
-		};
+		void show()
 
 	private:
 		int myValue;
 
 };
 
+// Constructors implementation
+Data::Data(int val):
+	myValue(val) {
+};
 
-// compare Method Implementation
+// Accessors
+int Data::getValue() const{
+	return myValue;
+};
+
+void Data::setValue(int val){
+	myValue=val;
+};
+
+// Misc Methods implementation
 int Data::compare(const Data & otherData){
 	if(myValue < otherData.getValue()){
 		return kMenor;
@@ -51,6 +60,12 @@ int Data::compare(const Data & otherData){
 		return kIgual;
 	}
 };
+
+void Data::show() {
+	cout << myValue << endl;
+};
+
+
 
 class Node{
 
@@ -185,6 +200,5 @@ int main(){
 
 	return 0;
 }
-
 
 

@@ -14,26 +14,24 @@ enum { kIgual, kMaior, kMenor };
 
 /* Data class containing data values of linked list */
 
+// interface
 class Data{
 
 	public:
 		// Constructors and SeekDestroy!
 		Data(int val);
-
 		~Data() {};
 
 		// Accessors
 		int getValue() const;
 		void setValue(int val);
 
-
 		// Misc Methods
 		int compare(const Data & otherData);
-		void show()
+		void show();
 
 	private:
 		int myValue;
-
 };
 
 // Constructors implementation
@@ -41,7 +39,7 @@ Data::Data(int val):
 	myValue(val) {
 };
 
-// Accessors
+// Accessors implementation
 int Data::getValue() const{
 	return myValue;
 };
@@ -65,13 +63,13 @@ void Data::show() {
 	cout << myValue << endl;
 };
 
+/* ================================================= */
 
-
+// Abstract Node Class
 class Node{
-
 	public:
 		Node(){};
-		virtual ~Node() {};
+		virtual ~Node(){};
 		virtual Node * insert(Data *theData)=0;
 		virtual void show() = 0;
 	private:
